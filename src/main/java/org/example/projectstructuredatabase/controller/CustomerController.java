@@ -8,30 +8,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-
-@RestController
+@RequestMapping("/mongodb")
+@RestController()
 public class CustomerController {
     private final CustomerService customerService;
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Customer> getAll() {
         return customerService.getAll();
 
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Customer save(@RequestBody Customer customer) {
 
         return customerService.save(customer);
     }
 
-    @GetMapping("/{id}")
-    public Customer getById(String id) {
+    @GetMapping("/getById")
+    public Customer getById(@PathVariable String id) {
         return customerService.getById(id);
     }
 
-    @DeleteMapping()
-    public void delete(String id) {
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody String id) {
         customerService.delete(id);
     }
 
