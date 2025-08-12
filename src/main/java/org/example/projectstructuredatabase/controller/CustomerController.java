@@ -25,15 +25,18 @@ public class CustomerController {
         return customerService.save(customer);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/{id}")
     public Customer getById(@PathVariable String id) {
         return customerService.getById(id);
     }
 
+    //    @DeleteMapping("/delete{id}")
+//    public void delete(@PathVariable String id) {
+//        customerService.delete(id);
+//    }
     @DeleteMapping("/delete")
-    public void delete(@RequestBody String id) {
+    public void delete(@RequestParam String id) {
         customerService.delete(id);
     }
-
 
 }
