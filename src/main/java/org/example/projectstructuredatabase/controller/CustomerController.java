@@ -30,13 +30,13 @@ public class CustomerController {
         return customerService.getById(id);
     }
 
-    //    @DeleteMapping("/delete{id}")
-//    public void delete(@PathVariable String id) {
-//        customerService.delete(id);
-//    }
-    @DeleteMapping("/delete")
-    public void delete(@RequestParam String id) {
+        @DeleteMapping("/delete{id}")
+    public void delete(@PathVariable String id) {
         customerService.delete(id);
     }
+//    @DeleteMapping("/delete")
+//    public void delete(@RequestParam String id) {
+//         customerService.delete(id);
+//    }
 
 }
